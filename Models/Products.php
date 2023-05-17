@@ -1,15 +1,20 @@
 <?php
-    
-    class Products {
-        public $cibi;
-        public $giochi;
-        public $cucce;
 
-        function __construct($_cibi = "", $_giochi = "", $_cucce = "") {
-            $this->cibi = $_cibi;
-            $this->giochi = $_giochi;
-            $this->cucce = $_cucce;
+    class Products {
+        public $category;
+        public $name;
+        private $price;
+        public $image;
+
+        function __construct(Categories $_category ,$_name, $_price, $_image) {
+            $this->category = $_category;
+            $this->name = $_name;
+            $this->price = $_price;
+            $this->image = $_image;
         }
+        public function getPrice() {
+            return $this->price;
+        }        
     }
 
 ?>
