@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . "/../Trait/PriceTrait.php";
+
     class Products {
         public $category;
         public $name;
@@ -12,9 +14,7 @@
             $this->price = $_price;
             $this->image = $_image;
         }
-        public function getPrice() {
-            return $this->price;
-        }        
-    }
 
+        use PriceTrait;
+    }
 ?>

@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors', 1);ini_set('display_startup_errors', 1);error_reporting(E_ALL);
+// ini_set('display_errors', 1);ini_set('display_startup_errors', 1);error_reporting(E_ALL);
 
     require_once __DIR__ . "/Database/db.php";
 
@@ -23,7 +23,12 @@ ini_set('display_errors', 1);ini_set('display_startup_errors', 1);error_reportin
                     <img src="<?php echo $product->image; ?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $product->name; ?></h5>
-                        <p class="card-text">Prezzo <?php echo $product->getPrice(); ?></p>
+                        <?php try { ?>
+                            <p class="card-text">Prezzo <?php echo $product->getPrice(); ?>€</p>
+                        <?php } catch(Exception $err) {  ?>
+
+                            <p class="card-text"> <?php echo $err->getMessage(); ?></p>
+                        <?php }  ?>
                         <p class="card-text">Categoria per: <?php echo $product->category->name ?></p>
                         <a href="#" class="btn btn-primary">Aggiungi al carrello</a>
                     </div>
